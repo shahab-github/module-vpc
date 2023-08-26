@@ -25,5 +25,5 @@ func TestVpc(t *testing.T) {
 
 	assert.Equal(t, "10.0.0.0/16", vpc.CidrBlock)
 	assert.Equal(t, 1, len(vpc.Subnets))
-	assert.Equal(t, "us-west-2a", vpc.Subnets[0].AvailabilityZone)
+	assert.Equal(t, "us-east-1a", vpc.Subnets[0].AvailabilityZone)
 }
