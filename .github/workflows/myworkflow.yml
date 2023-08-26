@@ -31,7 +31,7 @@ jobs:
       run: go mod init "vpc-module"
     
     - name: Tidy Go module
-      run: go mod tidy
+      run: go mod tidy -go=1.16 && go mod tidy -go=1.17
 
     - name: Run Terratest
       run: go test -v -timeout 30m ./test
