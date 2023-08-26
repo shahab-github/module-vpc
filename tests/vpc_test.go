@@ -10,7 +10,7 @@ import (
 
 func TestVpc(t *testing.T) {
 	terraformOptions := &terraform.Options{
-		TerraformDir: "../examples/vpc",
+		TerraformDir: "../example/",
 	}
 
 	defer terraform.Destroy(t, terraformOptions)
