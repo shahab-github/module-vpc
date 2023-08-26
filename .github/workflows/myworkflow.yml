@@ -27,5 +27,11 @@ jobs:
     - name: Install Terratest
       run: go get github.com/gruntwork-io/terratest/modules/terraform
 
+    - name: Initialize Go module
+      run: go mod init "vpc-module"
+    
+    - name: Tidy Go module
+      run: go mod tidy
+
     - name: Run Terratest
       run: go test -v -timeout 30m ./test
