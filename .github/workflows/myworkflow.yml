@@ -1,0 +1,31 @@
+name: Terratest
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 1.0.9
+
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+
+    - name: Install Terratest
+      run: go get github.com/gruntwork-io/terratest/modules/terraform
+
+    - name: Run Terratest
+      run: go test -v -timeout 30m ./test
